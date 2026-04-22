@@ -1,1 +1,1 @@
-# YOLO_World_v1
+# YOLO_World_v2
