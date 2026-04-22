@@ -7,6 +7,7 @@ except importlib_metadata.PackageNotFoundError:
     __version__ = '0.0.0'
 
 
+from .datasets import *  # noqa
 from .models import *  # noqa
 from .datasets import *  # noqa
 from .engine import *  # noqa

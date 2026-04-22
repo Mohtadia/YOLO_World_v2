@@ -72,12 +72,22 @@ class RandomLoadText:
         if 'instances' in results:
             retaged_instances = []
             for idx, inst in enumerate(results['instances']):
+                inst = inst.copy()
                 label = inst['bbox_label']
-                if label in label2ids:
-                    inst['bbox_label'] = label2ids[label]
-                    retaged_instances.append(inst)
-            results['instances'] = retaged_instances
 
+                if label in label2ids:
+                    # keep original species id
+                    if 'species_id' not in inst:
+                        inst['species_id'] = label
+
+                    # remap only bbox_label
+                    inst['bbox_label'] = label2ids[label]
+
+                    retaged_instances.append(inst)
+                    # print(results['instances'][0])
+
+            results['instances'] = retaged_instances
+    
         texts = []
         for label in sampled_labels:
             cls_caps = class_texts[label]

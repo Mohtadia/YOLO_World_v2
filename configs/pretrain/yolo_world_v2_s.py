@@ -51,8 +51,8 @@ text_transform = [
          max_num_samples=num_training_classes,
          padding_to_max=True,
          padding_value=''),
-    dict(type='mmdet.PackDetInputs',
-         meta_keys=('img_id', 'img_path', 'ori_shape', 'img_shape', 'flip',
+    dict(type='PackHierDetInputs',
+        meta_keys=('img_id', 'img_path', 'ori_shape', 'img_shape', 'flip',
                     'flip_direction', 'texts'))
 ]
 train_pipeline = [
